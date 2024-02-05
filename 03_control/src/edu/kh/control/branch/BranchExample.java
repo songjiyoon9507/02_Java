@@ -156,14 +156,7 @@ public class BranchExample {
 				System.out.printf("현재 기록 : %d승 %d무 %d패", win, tie, lose);
 			}
 			System.out.println();
-					
-			//( input.equals("exit@") )
 		}
-		
-		
-		
-		
-		
 	}
 	
 	public void game() {

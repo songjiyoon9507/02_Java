@@ -120,21 +120,24 @@ public class ConditionPractice { // 기능 작성 클래스
 		int att = sc.nextInt();
 		double attPer = att*5*0.2;
 		
-		if (att < 14) {
-			System.out.printf("Fail [출석 횟수 부족 (%d/20)]",att);
-		}
-		
 		System.out.println("=============결과=============");
-		System.out.printf("중간 고사 점수(20) : %.1f\n",midPer);
-		System.out.printf("기말 고사 점수(30) : %.1f\n",endPer);
-		System.out.printf("과제 점수     (30) : %.1f\n",homePer);
-		System.out.printf("출석 점수     (20) : %.1f\n",attPer);
-		System.out.printf("총점 : %.1f\n",(midPer+endPer+homePer+attPer));
 		
-		if ((midPer+endPer+homePer+attPer) >= 70) {
-			System.out.println("Pass");
-		} else if((midPer+endPer+homePer+attPer) < 70) {
-			System.out.println("Fail [점수 미달]");
+		if (att <= 14) {
+			System.out.printf("Fail [출석 횟수 부족 (%d/20)]",att);
+		} else {
+		
+			// System.out.println("=============결과=============");
+			System.out.printf("중간 고사 점수(20) : %.1f\n",midPer);
+			System.out.printf("기말 고사 점수(30) : %.1f\n",endPer);
+			System.out.printf("과제 점수     (30) : %.1f\n",homePer);
+			System.out.printf("출석 횟수     (20) : %.1f\n",attPer);
+			System.out.printf("총점 : %.1f\n",(midPer+endPer+homePer+attPer));
+			
+			if ((midPer+endPer+homePer+attPer) >= 70) {
+				System.out.println("PASS");
+			} else if((midPer+endPer+homePer+attPer) < 70) {
+				System.out.println("Fail [점수 미달]");
+			}
 		}
 		
 	}
