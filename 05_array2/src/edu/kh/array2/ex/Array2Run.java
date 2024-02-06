@@ -11,7 +11,5 @@ public class Array2Run {
 		
 		arr2Ex.ex3();
 		
-		
-		
 	}
 }

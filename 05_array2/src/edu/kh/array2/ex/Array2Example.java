@@ -128,17 +128,14 @@ public class Array2Example {
 		// 1열의 합 : 15
 		// 2열의 합 : 18
 		// col 고정 row 증가
-		for (int row = 0 ; row < arr.length ; row++) { // 행 반복 3번
+		for (int col = 0 ; col < arr.length ; col++) { // 행 반복 3번
 			int sum = 0;
-			for (int col = 0 ; col < arr[row].length ; col++) {
+			for (int row = 0 ; row < arr[col].length ; row++) {
 				// 열 반복
-				sum += arr[col][row];
+				sum += arr[row][col];
 			}
-			System.out.printf("%d열의 합 : %d\n", row, sum);
+			System.out.printf("%d열의 합 : %d\n", col, sum);
 		}
-		
-		
-		
 	}
 	
 	public void ex3() {
@@ -164,8 +161,4 @@ public class Array2Example {
 		}
 		System.out.println(Arrays.deepToString(arr));
 	}
-	
-	
-	
-	
 }

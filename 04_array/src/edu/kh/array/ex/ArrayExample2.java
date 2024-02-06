@@ -118,10 +118,4 @@ public class ArrayExample2 {
 		// 결과 출력
 		System.out.println(Arrays.toString(lotto));
 	}
-	
-	
-	
-	
-	
-	
 }
