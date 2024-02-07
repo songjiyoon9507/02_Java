@@ -10,10 +10,15 @@
     <fullyQualifiedTypeName name="edu.kh.control.condition.ConditionExample"/>
     <fullyQualifiedTypeName name="edu.kh.control.practice.ConditionPractice"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="edu.kh.array.ex.ArrayExample1"/>
     <fullyQualifiedTypeName name="edu.kh.array.ex.ArrayExample2"/>
     <fullyQualifiedTypeName name="edu.kh.array2.ex.Array2Example"/>
     <fullyQualifiedTypeName name="edu.kh.array.practice.service.PracticeService"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="edu.kh.array2.practice.Array2Practice"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="edu.kh.oop.abstraction.model.vo.People"/>
+    <fullyQualifiedTypeName name="ehu.kh.oop.abstraction.run.AbstractionRun"/>
+    <fullyQualifiedTypeName name="edu.kh.oop.abstraction.model.service.AbstractionService"/>
+    <fullyQualifiedTypeName name="edu.kh.oop.basic.Account"/>
 </qualifiedTypeNameHistroy>

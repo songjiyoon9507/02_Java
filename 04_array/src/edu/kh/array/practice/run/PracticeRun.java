@@ -31,6 +31,8 @@ public class PracticeRun { // 기능 실행 클래스
 		
 		// ps.practice12();
 		
-		ps.practice13();
+		// ps.practice13();
+		
+		ps.practice14();
 	}
 }

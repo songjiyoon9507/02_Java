@@ -273,6 +273,7 @@ public class PracticeService { // 기능 제공 클래스
 		System.out.print("문자열에 있는 문자 : ");
 		
 		for(int i = 0 ; i < str.length() ; i++) {
+		
 			
 			ch[i] = str.charAt(i);
 			
@@ -281,7 +282,79 @@ public class PracticeService { // 기능 제공 클래스
 				System.out.print(", ");
 			}
 		}
+		
+		// 같은
+		
+//		char result = ch[0];
+//		
+//		for(int i = 0 ; i < ch.length ; i++) {
+//			System.out.print(ch[i]);
+//			if(ch[i] == ch[0]) {
+//				
+//			}
+//		}
+		
+		
+//		System.out.println();
+		
+		// 빈 배열에 ch[i] 하나씩 넣어주면서 중복된 게 있는지 판별
+		// 중복 안 될 때만 출력 (이 때 카운트 올라감)
+		// 문자 개수 출력
+//		int count = 0;
+//		
+//		char[] result = new char[count];
+//		boolean flag = false;
+//		// 입력 받은 배열 길이만큼 반복
+//		for(int i = 0 ; i < count ; i++) {
+//			for (int j = 1 ; j < ch.length ; j++) {
+//				if(result[i] != ch[j]) {
+//					result[i] = ch[i];
+//					count++;
+//					flag = true;
+//				}
+//			}
+//			if (!flag) {
+//				System.out.println(result[i]);
+//			}
+//			if (i != result.length -1) {
+//				System.out.print(", ");
+//			}
+//		}
+		
+//		for(int i = 0 ; i < ch.length ; i++) {
+//			boolean flag = false;
+//			
+//			for(int j = 0 ; j < ch.length ; j++) {
+//				if (ch[i] == result[j]) {
+//					flag = true;
+//					System.out.print(result[j]);
+//				}
+//			}
+//			
+//			if(!flag) {
+//				count++;
+//			}
+//			
+//			if (i != str.length()-1) {
+//				System.out.print(", ");
+//			}
+//		}
+//		System.out.println();
+//		System.out.print("문자 개수 : " + count);
+		
 	}
 
+	public void practice14() {
 
+		System.out.print("배열의 크기를 입력하세요 : ");
+		int input = sc.nextInt();
+		// 입력한 크기만큼 배열 만들기
+		String[] str = new String[input];
+		
+		for (int i = 1 ; i <= input ; i++) {
+			System.out.printf("%d번째 문자열 : ",i);
+			String text = sc.nextLine();
+			System.out.println();
+		}
+	}
 }
