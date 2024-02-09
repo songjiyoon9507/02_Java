@@ -30,6 +30,6 @@ public class Run2 {
 		
 		// lp.practice12();
 		
-		lp.practice13();
+		// lp.practice13();
 	}
 }
