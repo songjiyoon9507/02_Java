@@ -1,4 +1,4 @@
-package ehu.kh.oop.abstraction.run;
+package edu.kh.oop.abstraction.run;
 
 import edu.kh.oop.abstraction.model.service.AbstractionService;
 
