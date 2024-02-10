@@ -14,9 +14,11 @@ public class PracticeRun { // 실행 클래스
 		
 		// ap.practice4(); // 못 풀었음
 		
+		ap.practice4_1();
+		
 		// ap.practice5();
 		
-		ap.practice6();
+		// ap.practice6();
 	}
 
 }

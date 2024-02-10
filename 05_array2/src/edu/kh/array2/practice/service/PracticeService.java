@@ -104,23 +104,122 @@ public class PracticeService { // 기능 제공 클래스
 
 	public void practice9() {
 		String[][] str = new String[6][6];
-		int col = 0;
+		for(int i = 0 ; i < str.length-1 ; i++) {
+			str[0][i+1] = i + "";
+			str[i+1][0] = i + "";
+		}
+		// System.out.println(Arrays.deepToString(str));
+		
 		int row = 0;
-		for(int i = 0 ; i < str.length ; i++) {
-				System.out.println(col);
-				col++;			
-			for(int j = 0 ; j < str[i].length ; j++) {
-				if (col == 1) {
-					System.out.print(j);
-				}
-
+		int col = 0;
+		
+		while(true) {
+			System.out.print("행 인덱스 입력 : ");
+			row = sc.nextInt();
+			
+			if(row < 0 || row > 4) {
+				System.out.println("0~4사이 인덱스를 입력해주세요.");
+				continue; // 입력 안하면 다른 수를 넣어도 열 인덱스 입력 뜸
+				// 브레이크를 건너 뜀 while 문 다시 반복
 			}
+			
+			break;
+		}
+		
+		while(true) {
+			System.out.print("열 인덱스 입력 : ");
+			col = sc.nextInt();
+			
+			if(col < 0 || col > 4) {
+				System.out.println("0~4사이 인덱스를 입력해주세요");
+				continue;
+			}
+			break;
+		}
+		
+		for(int i = 0 ; i < str.length ; i++) {
+			for(int j = 0 ; j < str[i].length ; j++) {
+				
+				if(i == row && j == col) {
+					str[i + 1][j + 1] = "X";
+				}
+				
+				// 안 쓰면 빈칸이 다 null 로 나옴
+				if(str[i][j] == null) {
+					str[i][j] = " ";
+				}
+				
+				System.out.print(str[i][j] + " "); // " " 안 붙이면 띄어쓰기가 없어짐
+			}
+			System.out.println();
 		}
 		
 	}
 
-
-	
-	
+	public void practice10() {
+		String[][] str = new String[6][6];
+		for(int i = 0 ; i < str.length-1 ; i++) {
+			str[0][i+1] = i + "";
+			str[i+1][0] = i + "";
+		}
+		// System.out.println(Arrays.deepToString(str));
+		
+		int row = 0;
+		int col = 0;
+		
+		
+		while(true) {
+			while(true) {
+				System.out.print("행 인덱스 입력 : ");
+				row = sc.nextInt();
+				
+				if(row == 99) {
+					break;
+				}
+				
+				if(row < 0 || row > 4) {
+					System.out.println("0~4사이 인덱스를 입력해주세요.");
+					continue; // 입력 안하면 다른 수를 넣어도 열 인덱스 입력 뜸
+					// 브레이크를 건너 뜀 while 문 다시 반복
+				}
+				
+				break;
+			}
+			
+			if(row == 99) {
+				System.out.println("프로그램 종료");
+				break;
+			}
+			
+			while(true) {
+				System.out.print("열 인덱스 입력 : ");
+				col = sc.nextInt();
+				
+				if(col < 0 || col > 4) {
+					System.out.println("0~4사이 인덱스를 입력해주세요");
+					continue;
+				}
+				break;
+			}
+			
+			for(int i = 0 ; i < str.length ; i++) {
+				for(int j = 0 ; j < str[i].length ; j++) {
+					
+					if(i == row && j == col) {
+						str[i + 1][j + 1] = "X";
+					}
+					
+					// 안 쓰면 빈칸이 다 null 로 나옴
+					if(str[i][j] == null) {
+						str[i][j] = " ";
+					}
+					
+					System.out.print(str[i][j] + " "); // " " 안 붙이면 띄어쓰기가 없어짐
+				}
+				System.out.println();
+			}
+		}
+		
+	}
 	
 }

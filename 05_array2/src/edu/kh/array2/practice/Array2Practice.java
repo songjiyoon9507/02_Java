@@ -62,22 +62,27 @@ public class Array2Practice { // 기능 작성 클래스
 				int random = (int)(Math.random()*10 +1);
 				if(col != arr[row].length -1 && row != arr.length-1) {
 					arr[row][col] = random;
+//					rowSum += arr[row][col];
 					rowSum += arr[row][col];
-					colSum += arr[col][row];
 					System.out.printf("%2d ",arr[row][col]);
 				}
 								
-				if(col == arr[row].length -1) {
-					System.out.printf("%2d",rowSum);
-					break;
-				}
+//				if(col == arr[row].length) {
+//					System.out.printf("%2d",colSum);
+//					break;
+//				}
+				
+				
 				
 			}			
+//			for(int i = 0 ; i <arr.length ; i++) {
+//				
+//			}
+			System.out.printf("%2d ",rowSum);
+//			for(int i = 0; i<arr.length;i++) {
+//				
+//			}
 			System.out.println();
-		}
-		for(int row = 0; row<arr.length;row++) {
-		
-			System.out.printf("%2d ",colSum);
 		}
 	}
 
@@ -126,6 +131,37 @@ public class Array2Practice { // 기능 작성 클래스
 		}
 	}
 
-
+	public void practice4_1() {
+		
+		int[][] arr = new int[4][4];
+		
+		int rowSum = arr.length-1; // 3
+		int colSum = arr[0].length-1; // 3
+		
+		for(int i = 0 ; i < rowSum ; i++) {
+			for(int j = 0 ; j < colSum ; j++) {
+				arr[i][j] = (int)(Math.random()*10+1);
+				
+				arr[i][3] += arr[i][j];
+				arr[3][j] += arr[i][j];
+			}
+		}
+		
+		for(int i = 0 ; i < arr.length ; i++) {
+			for(int j = 0 ; j < arr[i].length; j++) {
+				System.out.printf("%3d ", arr[i][j]);
+	
+				// 열의 합과 행의 합 의 총합 출력
+				
+				if(i == rowSum || j == colSum) {
+					arr[rowSum][colSum] += arr[i][j];
+				}
+			}
+			System.out.println();
+		}
+		
+	}
+	
+	
 
 }
