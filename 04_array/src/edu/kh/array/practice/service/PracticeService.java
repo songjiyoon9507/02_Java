@@ -1,7 +1,10 @@
 package edu.kh.array.practice.service;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class PracticeService { // 기능 제공 클래스
 	Scanner sc = new Scanner(System.in);
@@ -304,22 +307,81 @@ public class PracticeService { // 기능 제공 클래스
 	}
 
 	public void practice14() {
-
+	
 		System.out.print("배열의 크기를 입력하세요 : ");
 		int input = sc.nextInt();
 		// 입력한 크기만큼 배열 만들기
-		String[] str = new String[input];
+		String[] arr = new String[input];
+		
 		sc.nextLine(); // 이거 안 넣어주면 안됨
+		// 입력 버퍼에 남은 개행문자 제거
 		
-		for (int i = 0 ; i < str.length ; i++) {
+		char ch = 'y';
+
+		for (int i = 0 ; i < arr.length ; i++) {
 			System.out.print((i+1) + "번째 문자열 : ");
-			str[i] = sc.nextLine();
+			arr[i] = sc.nextLine();
+			
+			}
+		
+		while (ch == 'y' || ch == 'Y') {
+			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+			ch = sc.next().charAt(0);
+			
+			if (ch == 'n' || ch == 'N') {
+				break;
+			}
+			
+			System.out.print("더 입력하고 싶은 개수 : ");
+			int more = sc.nextInt();
+			sc.nextLine();
+			
+			String[] moreArr = new String[arr.length + more];
+			
+	        for(int i=0; i<moreArr.length ; i++) {
+	            if(i<arr.length) { // 인덱스의 크기가 기존 배열보다 작을 경우 기존 배열값 복사
+	                moreArr[i] = arr[i];
+	            }else { // 인덱스의 크기가 기존 배열보다 클 경우 새로운 문자열 입력 받기
+	                System.out.print((i+1) + "번째 문자열 : ");
+	                moreArr[i] = sc.nextLine();
+	            }
+	        }
+			
+	        arr = moreArr;	
+			
 		}
-		
-		
-		
-		
-		
+		System.out.println(Arrays.toString(arr));
 		
 	}
+	
+	public void practice14_1() {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		StringTokenizer st;
+		StringBuilder sb = new StringBuilder();
+		
+		System.out.print("배열의 크기를 입력하세요 : ");
+		
+		String str;
+	
+	}
+	
+	public void practice14_2() {
+		
+		System.out.println("배열의 크기를 입력하시오 : ");
+		int input = sc.nextInt();
+		
+		// 입력 버퍼 비워주기 안 쓰면 이상하게 출력됨
+		sc.nextLine();
+		
+		String[] arr = new String[input];
+		
+		for(int i = 0 ; i < arr.length ; i++) {
+			System.out.print((i+1) + "번째 문자열 : ");
+		}
+		
+	}
+	
+	
 }

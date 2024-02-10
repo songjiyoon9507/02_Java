@@ -19,8 +19,8 @@ public class PracticeRun {
 		Practice3 pr3 = new Practice3();
 		// pr3.ex2();
 		
-		// pr3.ex3();
+		pr3.ex3();
 		
-		pr3.ex4();
+		// pr3.ex4();
 	}
 }
