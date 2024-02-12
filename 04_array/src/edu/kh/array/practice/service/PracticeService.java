@@ -339,9 +339,9 @@ public class PracticeService { // 기능 제공 클래스
 			String[] moreArr = new String[arr.length + more];
 			
 	        for(int i=0; i<moreArr.length ; i++) {
-	            if(i<arr.length) { // 인덱스의 크기가 기존 배열보다 작을 경우 기존 배열값 복사
+	            if(i<arr.length) { // 기존 배열까지는 기존 배열 그대로 복사
 	                moreArr[i] = arr[i];
-	            }else { // 인덱스의 크기가 기존 배열보다 클 경우 새로운 문자열 입력 받기
+	            }else { // 기존 배열 이후에 새로운 배열 추가
 	                System.out.print((i+1) + "번째 문자열 : ");
 	                moreArr[i] = sc.nextLine();
 	            }
