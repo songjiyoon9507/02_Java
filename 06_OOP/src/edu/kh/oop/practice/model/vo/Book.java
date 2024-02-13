@@ -44,12 +44,9 @@ public class Book {
 		System.out.println(this.toString());
 	}
 	
-	
 	@Override
 	public String toString() { // toString
 		return title + " / " + price + " / " + discountRate + " / " + author;
 	}
-	
-	
 	
 }

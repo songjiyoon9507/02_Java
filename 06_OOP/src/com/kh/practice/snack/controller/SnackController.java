@@ -18,4 +18,8 @@ public class SnackController {
 		return "저장 완료되었습니다.";
 	}
 	
+	public String confirmData() {
+		return s.information();
+	}
+	
 }

@@ -6,6 +6,7 @@ public class Snack {
 	private String flavor; // 맛
 	private int numOf; // 개수
 	private int price; // 가격
+	
 	public String getKind() {
 		return kind;
 	}
