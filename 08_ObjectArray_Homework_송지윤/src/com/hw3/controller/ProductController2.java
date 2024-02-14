@@ -120,8 +120,8 @@ public class ProductController2 {
 			if(inputNum == pro[i].getPId()) {
 				
 				System.out.print("수정할 제품 번호 : ");
-				int pld = sc.nextInt();
-				pro[i].setPId(pld);
+				int pId = sc.nextInt();
+				pro[i].setPId(pId);
 				sc.nextLine();
 				
 				System.out.print("수정할 제품명 : ");

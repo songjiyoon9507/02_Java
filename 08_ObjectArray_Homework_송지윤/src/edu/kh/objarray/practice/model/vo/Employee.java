@@ -48,5 +48,14 @@ public class Employee {
 		this.salary = salary;
 	}
 	
+	public String information() {
+		return "사번 : " + empNo + ", 이름 : " + empName 
+				+ ", 부서 : " + dept + ", 직급 : " + job
+				+ ", 급여 : " + salary + "\n";
+	}
+	
+	public String maxSalary() {
+		return "이름 : " + empName + ", 부서 : " + dept + ", 급여 : " + salary + "\n";
+	}
 	
 }
