@@ -67,9 +67,19 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+//	public String information() {
+//		return "userId=" + userId + ", userPwd=" + userPwd + ", name=" + name + ", age=" + age + ", gender="
+//				+ gender + ", email=" + email;
+//	}
 	
-	public String information () {
-		return null;
+	public String information() {
+		return "아이디 : " + userId + "\n 비밀번호 : "
+				+ userPwd + "\n 이름 : " + name 
+				+ "\n 나이 : " + age + "\n 성별 : "
+				+ gender + "\n email : " + email;
 	}
+	
+	
 	
 }
