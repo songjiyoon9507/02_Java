@@ -11,6 +11,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\workspace\02_Java\08_ObjectArray_Homework_송지윤"/>
+			<item value="C:\workspace\02_Java\07_ObjectArray_Homework_송지윤"/>
 			<item value="C:\workspace\02_Java\06_OOP"/>
 			<item value="C:\workspace\JAVA\Homework"/>
 			<item value="C:\workspace\02_Java\00_javaBasic"/>
