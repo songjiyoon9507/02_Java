@@ -23,6 +23,7 @@ public class MemberController {
 		return memberCount;
 	}
 	
+	// 호출한 곳에 자료형Member 배열 변수명 mem 돌려줌
 	public Member[] getMem() {
 		return mem;
 	}
@@ -123,10 +124,34 @@ public class MemberController {
 	}
 	
 	public void deleteMember(String userId) {
+		// 매개변수로 전달받은 userId가 mem 에 존재하는 경우 해당 회원 삭제
+		for(int i = 0 ; i < memberCount ; i++) {
+			
+			if(mem[i].getUserId().equals(userId)) {
+				mem[i] = null;
+				// 다음 인덱스 객체들의 정보를 한 칸씩 앞으로 이동 시킴
+				for (int j = i ; j < memberCount ; j++) {
+					// 비운 배열부터 차있던 배열까지
+					// 10개가 다 찼을 때 지우면 오류 발생
+					// 아래 문장 추가로 해결
+					if(j == 9)break;
+					mem[j] = mem[j+1];
+					if(mem[j] == null) {
+						break;
+					}
+				}
+				memberCount--;
+			}
+			
+		}
 		
 	}
 	
 	public Member[] sortIdAsc() {
+		// 기존의 회원 객체 배열 (mem) 변경하지 않고 정렬된 결과만 보여주기
+		// 기존 배열 복사해서 사용
+		
+		
 		return null;
 	}
 	

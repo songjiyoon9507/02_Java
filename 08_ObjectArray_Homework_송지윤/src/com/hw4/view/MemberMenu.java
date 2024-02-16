@@ -243,9 +243,82 @@ public class MemberMenu {
 		}
 	}
 	
-	public void deleteMember() {}
+	public void deleteMember() {
+		System.out.print("삭제할 회원 아이디 : ");
+		String userId = sc.nextLine();
+		
+		// 1. MemberController의 checkId()에 userId 전달
+		Member m = mc.checkId(userId);
+		
+		// 돌아온 결과 값 null 이면 값 없는 거
+		// 아니면 mem[i] 돌아옴
+		if(m == null) { // 값 없을 때
+			System.out.println("삭제할 회원이 존재하지 않습니다.");
+		} else { // null 이 아닐 때
+			// 기존 정보 출력
+			System.out.println(m.information());
+			System.out.print("정말 삭제하시겠습니까? (y/n) : ");
+			// char answer = sc.next().toUpperCase().charAt(0);
+			// char 형 아니고 String 으로 받아서 toUpperCase
+			String answer = sc.next().toUpperCase();
+			// 대소문자 구분 없이 'Y'인 경우 MemberController의 deleteMember()에
+			// userId 전달
+			if (answer.equals("Y")) { // string 으로 받았으니까 큰따옴표
+				// Y인 경우 MemberController의 deletMember()에 userId 전달
+				mc.deleteMember(userId);
+				// 돌려 받을 값 없음 그냥 지울거임
+				System.out.println("회원의 정보가 삭제되었습니다.");
+			}
+		}
+		
+	}
 	
-	public void printAllMember() {}
+	public void printAllMember() {
+		// MemberController의 getMem() 메소드 호출 결과 값 mem : Member[]
+		Member[] mem = mc.getMem();
+		for(int i = 0 ; i < mem.length ; i++) {
+			if(mem[i] != null) {
+				// 결과 값 안의 존재하는 회원들 정보 출력
+				System.out.println(mem[i].information());
+			} else {
+				// mem[i] == null 일 때 반복문 종료
+				break;
+			}
+		}
+	}
 	
-	public void sortMember() {}
+	public void sortMember() {
+		
+		Member[] sortMem = null; // 정렬 결과를 받아 줄 객체배열 초기화
+		
+		while(true) {
+			System.out.println("===== 회원 정보 정렬 =====");
+			System.out.println("1. 아이디 오름차순 정렬");
+			System.out.println("2. 아이디 내림차순 정렬");
+			System.out.println("3. 나이 오름차순 정렬");
+			System.out.println("4. 나이 내림차순 정렬");
+			System.out.println("5. 성별 내림차순 정렬(남여순)");
+			System.out.println("9. 이전 메뉴로");
+			
+			System.out.print("메뉴 선택 : ");
+			int menu = sc.nextInt();
+			sc.nextLine();
+			
+			if(menu == 9) {
+				System.out.println("이전 메뉴로 돌아갑니다.");
+				return;
+			}
+			
+			switch(menu) {
+			case 1 : mc.sortAgeAsc(); break;
+			
+			
+			
+			
+			}
+			
+			
+		}
+		
+	}
 }
