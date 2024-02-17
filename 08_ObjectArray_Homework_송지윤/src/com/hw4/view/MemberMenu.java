@@ -289,7 +289,6 @@ public class MemberMenu {
 	
 	public void sortMember() {
 		
-		Member[] sortMem = null; // 정렬 결과를 받아 줄 객체배열 초기화
 		
 		while(true) {
 			System.out.println("===== 회원 정보 정렬 =====");
@@ -309,8 +308,10 @@ public class MemberMenu {
 				return;
 			}
 			
+			Member[] sortMem = null; // 정렬 결과를 받아 줄 객체배열 초기화
+			
 			switch(menu) {
-			case 1 : mc.sortAgeAsc(); break;
+			case 1 : sortMem = mc.sortAgeAsc(); break;
 			
 			
 			

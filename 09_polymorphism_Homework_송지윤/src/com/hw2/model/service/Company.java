@@ -31,29 +31,48 @@ public class Company implements ManagementSystem {
 
 	@Override
 	public void addPerson(Person person) {
-		
-		for (int i = 0 ; i < employeeCount; i++) {
+		//  employeeCount를 길이로 하면 시작이 0이라서 출력 안나옴
+		for (int i = 0 ; i < employees.length ; i++) {
 			if (employees[i] == null) {
 				employees[i] = (Employee)person;
 				employeeCount++;
-				System.out.print("직원이 추가되었습니다 - ");
-				employees[i].getInfo();
+				// getInfo는 print 안됨 print 안에 넣어줘야함
+				System.out.println("직원이 추가되었습니다 - " + employees[i].getInfo());
 				break;
 			}
 		}
-		
+		if(employeeCount == employees.length) {   
+			System.out.println("인원이 모두 충원되었습니다.");
+		}
 	}
 
 	@Override
 	public void removePerson(String id) {
-		// TODO Auto-generated method stub
-		
+		for(int i = 0 ; i < employeeCount ; i++) {
+			
+			if(employees[i].getId().equals(id)) {
+				System.out.println("직원이 삭제되었습니다 - " + employees[i].getInfo());
+				employees[i] = null;
+				
+				for(int j = i ; j < employeeCount ; j++) {
+					if(j == employees.length - 1) break;
+					employees[j] = employees[j+1];
+					
+					if(employees[j] == null) {
+						break;
+					}
+				}
+				employeeCount--;
+			}
+		}
 	}
 
 	@Override
 	public void displayAllPerson() {
-		// TODO Auto-generated method stub
-		
+		// 전체 명단
+		System.out.println("전체 직원 명단 : ");
+		for (int i = 0 ; i < employeeCount ; i++) {
+			System.out.println(employees[i].getInfo());
+		}
 	}
-	
 }

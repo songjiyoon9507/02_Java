@@ -150,8 +150,14 @@ public class MemberController {
 	public Member[] sortIdAsc() {
 		// 기존의 회원 객체 배열 (mem) 변경하지 않고 정렬된 결과만 보여주기
 		// 기존 배열 복사해서 사용
+		// Member copy[];
+		// 생성
 		
+		Member copy[] = new Member[memberCount];
+		// System.arraycopy(원본, 어디부터?, 복사할 곳, 복사 시작위치, 복사본 길이)
+		System.arraycopy(mem, 0, copy, 0, memberCount);
 		
+		// 결과 sortMem에 대입
 		return null;
 	}
 	

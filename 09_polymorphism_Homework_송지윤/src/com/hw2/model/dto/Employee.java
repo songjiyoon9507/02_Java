@@ -22,5 +22,4 @@ public class Employee extends Person {
 		return "ID : " + id + ", 이름 : " + name + ", 직책 : " + position;
 	}
 	
-	
 }

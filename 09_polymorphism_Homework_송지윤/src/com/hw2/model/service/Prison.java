@@ -25,25 +25,57 @@ public class Prison implements ManagementSystem {
 		this.prisonerCount = prisonerCount;
 	}
 	
-	public Prison(int size) {}
+	public Prison(int size) {
+		prisoners = new Prisoner[size];
+		prisonerCount = 0;
+	}
 
 	@Override
 	public void addPerson(Person person) {
-		// TODO Auto-generated method stub
-		
+		for (int i = 0 ; i < prisoners.length ; i++) {
+			if(prisoners[i] == null) {
+				prisoners[i] = (Prisoner)person;
+				// Person 이 부모라서 자식으로 강제 형변환
+				prisonerCount++;
+				System.out.println("수감자가 추가되었습니다 - " + prisoners[i].getInfo());
+				break;
+			}
+			if(prisonerCount == 10) {
+				System.out.println("인원이 모두 충원되었습니다.");
+			}
+		}
 	}
 
 	@Override
 	public void removePerson(String id) {
-		// TODO Auto-generated method stub
-		
+		for(int i = 0 ; i < prisonerCount ; i++) {
+			if(prisoners[i].getId().equals(id)) {
+				System.out.println("수감자가 삭제되었습니다 - " + prisoners[i].getInfo());
+				prisoners[i] = null;
+				
+				// 뒤에 있는 애들 앞으로 쌓아야 count 가 맞음
+				// 빈 i 부터 쭉 넣어줘야함
+				for (int j = i ; j < prisonerCount ; j++) {
+					if(j == prisoners.length - 1)break;
+					// 배열 길이 10 배열 길이 다 찼을 때 호출되면 오류 발생
+					prisoners[j] = prisoners[j+1];
+					// 그럼 count 가 뒤에 하나 남음
+					if(prisoners[j] == null) {
+						break;
+					}
+				}
+				prisonerCount--;
+			}
+		}
 	}
 
 	@Override
 	public void displayAllPerson() {
-		// TODO Auto-generated method stub
-		
+		// 전체 명단 출력
+		// 위에서 count 가 세지니까 가능할 수도
+		System.out.println("전체 수감자 명단 :");
+		for( int i = 0 ; i < prisonerCount ; i++) {
+			System.out.println(prisoners[i].getInfo());
+		}
 	}
-
-	
 }

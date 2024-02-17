@@ -19,8 +19,7 @@ public class Prisoner extends Person {
 
 	@Override
 	public String getInfo() {
-		// TODO Auto-generated method stub
-		return null;
+		return "ID : " + id + ", 이름 : " + name + ", 죄목 : " + crime;
 	}
 	
 }
