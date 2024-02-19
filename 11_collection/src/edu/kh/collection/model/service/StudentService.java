@@ -61,7 +61,7 @@ public class StudentService {
 		// * 매개변수 타입이 Object == 모든 객체를 매개변수로 전달할 수 있음
 		studentList.add(new Student()); // 0번째 인덱스에 Student 객체 넣어준 거
 		// Student [name=null, age=0, region=null, gender=, score=0]
-		// toString Override 형태롤 나옴
+		// toString Override 형태로 나옴
 		// studentList.add(sc); // 1번 인덱스에 Scanner 객체 전달
 		// studentList.add("문자열"); // 2번 인덱스에 "문자열" 넣어줌 String 은 참조형 객체화 돼있음
 		// studentList.add(new Object()); // 3번 인덱스에 Object 넣어줌
