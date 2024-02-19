@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="edu.kh.oop.basic.Account"/>
-    <fullyQualifiedTypeName name="edu.kh.oop.practice.model.vo.Hero"/>
-    <fullyQualifiedTypeName name="edu.kh.oop.practice.model.service.HeroService"/>
-    <fullyQualifiedTypeName name="edu.kh.oop.cls.model.vo.TestVO"/>
-    <fullyQualifiedTypeName name="edu.kh.oop.cls.model.service.ClsService"/>
-    <fullyQualifiedTypeName name="edu.kh.oop.cls.model.vo.Student"/>
-    <fullyQualifiedTypeName name="edu.kh.oop.cls.model.vo.User"/>
     <fullyQualifiedTypeName name="edu.kh.oop.practice.model.service.BookService"/>
     <fullyQualifiedTypeName name="edu.kh.oop.practice.model.vo.Book"/>
     <fullyQualifiedTypeName name="edu.kh.oop.method.model.service.MemberService"/>
@@ -14,9 +7,6 @@
     <fullyQualifiedTypeName name="com.kh.practice.snack.model.vo.Snack"/>
     <fullyQualifiedTypeName name="com.kh.practice.snack.controller.SnackController"/>
     <fullyQualifiedTypeName name="com.kh.practice.snack.view.SnackMenu"/>
-    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
-    <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
-    <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
@@ -39,7 +29,6 @@
     <fullyQualifiedTypeName name="com.kh.inheritance.model.dto.BasicPhone"/>
     <fullyQualifiedTypeName name="com.hw1.model.vo.Student"/>
     <fullyQualifiedTypeName name="com.hw1.model.vo.Employee"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="edu.kh.poly.ex1.model.vo.Car"/>
     <fullyQualifiedTypeName name="edu.kh.poly.ex1.model.vo.Tesla"/>
     <fullyQualifiedTypeName name="edu.kh.poly.ex1.model.vo.Spark"/>
@@ -60,4 +49,15 @@
     <fullyQualifiedTypeName name="com.hw2.model.service.Company"/>
     <fullyQualifiedTypeName name="com.hw2.model.service.ManagementSystem"/>
     <fullyQualifiedTypeName name="com.hw2.model.dto.Prisoner"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+    <fullyQualifiedTypeName name="edu.kh.exception.model.service.ExceptionService"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="edu.kh.collection.model.vo.Student"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="edu.kh.collection.model.service.StudentService"/>
+    <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
 </qualifiedTypeNameHistroy>
