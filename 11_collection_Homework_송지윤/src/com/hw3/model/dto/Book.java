@@ -63,6 +63,4 @@ public class Book {
 				+ "원 / 출판사 : " + publisher + "]\n";
 	}
 	
-	
-	
 }
