@@ -1,12 +1,14 @@
-package edu.kh.collection.model.service;
+package edu.kh.collection.pack1.model.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.InputMismatchException;
 //import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-import edu.kh.collection.model.vo.Student;
+import edu.kh.collection.pack1.model.vo.Student;
 // 중요함
 // C R U D
 // 추가 조회 수정 삭제
@@ -112,6 +114,8 @@ public class StudentService {
 			System.out.println("4. 학생 정보 삭제");
 			System.out.println("5. 이름으로 검색(일치)");
 			System.out.println("6. 이름으로 검색(포함)");
+			System.out.println("7. 나이순으로 정렬"); // Comparable
+			System.out.println("8. 이름순으로 정렬"); // Comparator
 			System.out.println("0. 프로그램 종료");
 			
 			System.out.print("메뉴 번호 선택 >> ");
@@ -128,6 +132,8 @@ public class StudentService {
 				case 4 : System.out.println(removeStudent()); break;
 				case 5 : searchName1(); break;
 				case 6 : searchName2(); break;
+				case 7 : sortByAge(); break;
+				case 8 : sortByName(); break;
 				case 0 : System.out.println("프로그램 종료"); break;
 				default : System.out.println("메뉴에 작성된 번호만 입력하세요.");
 				}
@@ -354,16 +360,21 @@ public class StudentService {
 		System.out.println("===== 이름으로 검색(일치) =====");
 		System.out.print("이름 입력(완전 일치) : ");
 		String name = sc.next();
-		
+//		boolean flag = true;
+//
 //		for (Student std : studentList) {
 //			if (std.getName().equals(name)) {
-//				System.out.println(std);
+//				System.out.println(std); // std.toString()
+				
+//				flag = false;
 //			}
 //		}
-//		} else {
-//			System.out.println("검색 결과가 없습니다.");
-//			break;
+//		
+//		if(flag) {
+//			System.out.println("검색 결과가 없습니다.")
 //		}
+//		
+//		
 		int temp = 0;
 		boolean flag = false;
 		
@@ -413,6 +424,42 @@ public class StudentService {
 		
 	}
 	
+	/**
+	 * 7. 나이순으로 정렬
+	 * 나이에 따라 오름차순 정렬
+	 */
+	public void sortByAge() {
+		Collections.sort(studentList);
+		
+		// 정렬된 결과 출력
+		for(Student std : studentList) {
+			System.out.println(std);
+		}
+	}
 	
+	/**
+	 * 8. 이름순으로 정렬
+	 */
+	public void sortByName() {
+		// 여러 개 만들 수 있음
+		
+		// 이름에 따라 정렬하는 Comparator 객체 생성
+		Comparator<Student> nameComparator = Comparator.comparing(Student::getName)/*.reversed()*/;
+		// Comparator 인터페이스의 static 메서드인 comparing() 을 사용하여 Comparator 객체를 생성
+		// -> comparing()는 주어진 키(key)를 기반으로 객체를 비교함.
+		// Student::getName : 메서드 레퍼런스(Method Reference) 메서드 참조
+		// -> Student 클래스의 getName() 메서드를 가리키는 것.
+		// -> 이 메서드를 비교의 키로 사용하여 각 Student 객체를 비교하고 정렬함.
+		// --> Comparator.comparing(Student::getName) 은 이름(name)을 기준으로
+		// 	   학생(Student) 객체를 비교하는 Comparator 를 생성.
+		
+		// 이름에 따라 정렬
+		Collections.sort(studentList, nameComparator);
+		
+		// 정렬된 결과 출력
+		for(Student std : studentList) {
+			System.out.println(std);
+		}
+	}
 	
 }
