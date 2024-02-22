@@ -67,7 +67,4 @@ public class Toy implements Comparable<Toy> {
 		return this.date - other.date;
 	}
 	
-	
-
-	
 }

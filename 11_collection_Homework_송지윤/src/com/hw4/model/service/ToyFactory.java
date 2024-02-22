@@ -38,7 +38,7 @@ public class ToyFactory {
 		
 		do {
 			
-			System.out.println("\n<< 플레이타임 공장 >>");
+			System.out.println("\n<< 플레이타임 공장 >>\n");
 			System.out.println("1. 전체 장난감 조회하기");
 			System.out.println("2. 새로운 장난감 만들기");
 			System.out.println("3. 장난감 삭제하기");
@@ -357,14 +357,14 @@ public class ToyFactory {
 				}
 			}
 			
-		if(flag) {
-			materialList.remove(temp);
-			System.out.printf("재료 \"%s\"가 성공적으로 제거되었습니다.\n",str);
-			return;
-		} else {
-			System.out.println("해당 이름의 재료가 존재하지 않습니다.");
-			return;
-		}
+			if(flag) {
+				materialList.remove(temp);
+				System.out.printf("재료 \"%s\"가 성공적으로 제거되었습니다.\n",str);
+				return;
+			} else {
+				System.out.println("해당 이름의 재료가 존재하지 않습니다.");
+				return;
+			}
 				
 //				System.out.println("새로운 재료가 성공적으로 등록되었습니다.");
 //				return;
