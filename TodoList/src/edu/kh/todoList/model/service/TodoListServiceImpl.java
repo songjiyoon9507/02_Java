@@ -67,4 +67,15 @@ public class TodoListServiceImpl implements TodoListService {
 		
 		return formattedDateTime;
 	}
+
+	/**
+	 * 할 일 상세 조회 서비스
+	 */
+	@Override
+	public void todoDetailView(int index) {
+		
+		// 1. DAO에 있는 todoList에서 index 번째 요소(Todo) 반환 받기
+		//    없으면 null 반환
+		Todo todo = dao.todoDetailView(index);
+	}
 }

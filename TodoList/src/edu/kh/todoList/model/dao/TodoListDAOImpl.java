@@ -82,6 +82,16 @@ public class TodoListDAOImpl implements TodoListDAO {
 	public List<Todo> todoListFullView() {
 		return todoList;
 	}
+
+	@Override
+	public Todo todoDetailView(int index) {
+		
+		// 1. index 범위가 todoList 범위를 넘어가면 null 반환
+		if(index < 0 || index >= todoList.size()) return null;
+		
+		// 2. index 가 정상 범위인 경우 index 번째 요소 반환
+		return todoList.get(index);
+	}
 	
 	
 	

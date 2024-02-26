@@ -48,7 +48,7 @@ public class TodoListView {
 				switch(input) {
 				
 				case 1 : todoListFullView(); break;
-//				case 2 : todoDetailView(); break;
+				case 2 : todoDetailView(); break;
 //				case 3 : todoAdd(); break;
 //				case 4 : todoComplete(); break;
 //				case 5 : todoUpdate(); break;
@@ -57,7 +57,7 @@ public class TodoListView {
 				default : System.out.println("### 메뉴에 작성된 번호만 입력해 주세요 ###");
 				}
 
-				System.out.println("====================================================");
+				System.out.println("==============================================================");
 				
 			} catch(NumberFormatException e) {
 				System.out.println("### 숫자만 입력해 주세요 ###");
@@ -116,9 +116,9 @@ public class TodoListView {
 		// 출력
 		System.out.printf("[ 완료된 Todo 개수 / 전체 Todo 수 : %d / %d ]\n"
 				, completeCount, todoList.size());
-		System.out.println("--------------------------------------------------------------------");
+		System.out.println("---------------------------------------------------------------");
 		System.out.printf("%-3s %10s   %10s     %s\n", "인덱스", "등록일", "완료여부", "할 일 제목");
-		System.out.println("--------------------------------------------------------------------");
+		System.out.println("---------------------------------------------------------------");
 		
 		for(int i=0, len = todoList.size(); i < len; i++) {
 		
@@ -133,9 +133,66 @@ public class TodoListView {
 		
 	}
 	
+	/** 할 일 상세 조회 (인덱스 번호 입력 받기)
+	 *  
+	 */
+	public void todoDetailView() throws IOException {
+		
+		System.out.println("\n==========[2. Todo Detail View]==========\n");
+		
+		System.out.print("인덱스 번호 입력 : ");
+		int index = Integer.parseInt(br.readLine());
+		
+		// 할 일 상세 조회 서비스 호출 후 결과 반환 받기
+//		service.todoDetailView(index);
+		
+//		Map<String, Object> map = service.todoListFullView();
+//		
+//		List<Todo> todoList = (List<Todo>)map.get("todoList");
+//		
+//		boolean flag = false;
+//		
+//		for(int i = 0 ; i < todoList.size() ; i++) {
+//			if(index == i) {
+//				flag = true;
+//				System.out.println("---------------------------------------------------------------");
+//				String title = todoList.get(index).getTitle();
+//				String regDate = service.dateFormat(todoList.get(index).getRegDate());
+//				String completeYN = todoList.get(index).isComplete() ? "O" : "X";
+//				String detail = todoList.get(index).getDetail();
+//				
+//				System.out.printf("제목 : %s\n", title);
+//				System.out.printf("등록일 : %s\n", regDate);
+//				System.out.printf("완료여부 : %s\n", completeYN);
+//				System.out.println();
+//				System.out.println("[세부 내용]");
+//				System.out.println("---------------------------------------------------------------");
+//				System.out.println(detail);
+//				System.out.println();
+//				break;
+//			}
+//		}
+//		
+//		if(!flag) {			
+//			System.out.println("일치하는 인덱스 번호가 없습니다.");
+//		}
+		
+	}
 	
-	
-	
+	/**
+	 * 할 일 추가
+	 */
+	public void todoAdd() throws IOException {
+		
+		System.out.println("\n==========[3. Todo Add]==========\n");
+		
+		System.out.print("제목 입력 : ");
+		String title = br.readLine();
+		
+		System.out.print("세부 내용 입력 : ");
+		String detail = br.readLine();
+		
+	}
 	
 	
 	
