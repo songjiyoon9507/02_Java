@@ -11,6 +11,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\workspace\02_Java"/>
 			<item value="C:\workspace2\02_JAVA\01_variable"/>
 			<item value="C:\workspace\02_Java\11_collection_Homework_송지윤"/>
 			<item value="C:\workspace\JAVA\Chapter9"/>
@@ -23,5 +24,9 @@
 			<item value="C:\workspace\02_Java\00_javaBasic"/>
 			<item value="C:\workspace\JAVA"/>
 		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="235"/>
+		<item key="DIALOG_Y_ORIGIN" value="336"/>
 	</section>
 </section>
