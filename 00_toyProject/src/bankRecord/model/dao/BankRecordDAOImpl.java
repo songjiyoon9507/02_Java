@@ -12,7 +12,7 @@ import bankRecord.model.dto.BankRecord;
 
 public class BankRecordDAOImpl implements BankRecordDAO {
 
-	private final String FILE_PATH = "/io_tset/BankRecord.dat";
+	private final String FILE_PATH = "/io_test/BankRecord.dat";
 	
 	private ObjectInputStream ois = null;
 	private ObjectOutputStream oos = null;
@@ -31,8 +31,6 @@ public class BankRecordDAOImpl implements BankRecordDAO {
 				
 				accountList = (ArrayList<BankRecord>)ois.readObject();
 				
-			} catch (Exception e) {
-				e.printStackTrace();
 			} finally {
 				if(ois != null) ois.close();
 			}
@@ -73,6 +71,30 @@ public class BankRecordDAOImpl implements BankRecordDAO {
 	@Override
 	public List<BankRecord> FullView() {
 		return accountList;
+	}
+
+	@Override
+	public String addAccount(String accountNum, String name, String password, long balance) throws Exception {
+		
+		if (accountList.add(new BankRecord(accountNum, name, balance, password))) {	
+			saveFile();
+			return name + "님 신규 계좌 개설되었습니다.\n계좌번호 : " + accountNum;
+		} else {
+			return "계좌 개설 실패";
+		}
+	}
+
+	@Override
+	public String deposit(int index, long balance) throws Exception {
+		if(index != -1) {
+			long money = accountList.get(index).getBalance();
+			long result = money + balance;
+			accountList.get(index).setBalance(result);
+			saveFile();
+			return accountList.get(index).getName() + "님 계좌에 " + balance + "원이 입금되었습니다.";
+		} else {
+			return "존재하지 않는 계좌번호입니다.";
+		}
 	}
 
 }

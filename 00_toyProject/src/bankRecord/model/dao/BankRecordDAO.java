@@ -12,5 +12,9 @@ public interface BankRecordDAO {
 	 * @return
 	 */
 	List<BankRecord> FullView();
-	
+
+	String addAccount(String accountNum, String name, String password, long balance) throws Exception;
+
+	String deposit(int index, long balance) throws Exception;
+
 }

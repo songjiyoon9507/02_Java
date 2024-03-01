@@ -1,6 +1,8 @@
 package bankRecord.model.dto;
 
-public class BankRecord {
+import java.io.Serializable;
+
+public class BankRecord implements Serializable {
 	// 필드
 	private String accountNum; // 계좌번호
 	private String name; // 이름
@@ -8,6 +10,13 @@ public class BankRecord {
 	private String password; // 비밀번호
 	
 	public BankRecord() {}
+	
+	public BankRecord(String name, long balance, String password) {
+		super();
+		this.name = name;
+		this.balance = balance;
+		this.password = password;
+	}
 
 	public BankRecord(String accountNum, String name, long balance, String password) {
 		this.accountNum = accountNum;
@@ -50,7 +59,7 @@ public class BankRecord {
 
 	@Override
 	public String toString() {
-		return "[계좌번호] : " + accountNum + " / [성함]" + name + " / [잔액]" + balance;
+		return "[계좌번호] : " + accountNum + " / [성함] : " + name + " / [잔액] : " + balance + "원";
 	}
 	
 }
