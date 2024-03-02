@@ -22,4 +22,8 @@ public interface BankRecordService {
 	public String withdraw(String accountNum, long balance) throws Exception;
 
 	public String searchBalance(String accountNum);
+
+	public String updatePassword(String accountNum, String updatepw) throws Exception;
+
+	public String deleteAccount(String accountNum) throws Exception;
 }

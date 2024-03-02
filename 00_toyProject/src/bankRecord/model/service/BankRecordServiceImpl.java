@@ -42,7 +42,6 @@ public class BankRecordServiceImpl implements BankRecordService {
 	public boolean checkPassword(String password, String password2) {
 		if(password.equals(password2)) return true;
 		else {
-			System.out.println("입력하신 비밀번호와 일치하지 않습니다. 비밀번호를 다시 입력해주세요.");
 			return false;
 		}
 	}
@@ -144,8 +143,15 @@ public class BankRecordServiceImpl implements BankRecordService {
 		
 		return "[ " + name + " ] 님의 계좌번호 : " + accountNum + "\n통장 잔고는 " + money + "원 입니다.";
 	}
-	
-	
-	
-	
+
+	@Override
+	public String updatePassword(String accountNum, String updatepw) throws Exception {
+		return dao.updatePassword(accountNum,updatepw);
+	}
+
+	@Override
+	public String deleteAccount(String accountNum) throws Exception {
+		return dao.deleteAccount(accountNum);
+	}
+
 }

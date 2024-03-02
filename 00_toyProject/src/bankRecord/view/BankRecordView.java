@@ -40,8 +40,7 @@ public class BankRecordView {
 				case 3 : withdraw(); break;
 				case 4 : searchBalance(); break;
 				case 5 : updatePassword(); break;
-				
-				
+				case 6 : deleteAccount(); break;	
 				case 7 : bankRecordList(); break;
 				case 0 : System.out.println("@@@ 프로그램 종료 @@@"); break;
 				default : System.out.println("### 메뉴에 작성된 번호만 입력해주세요 ###");
@@ -102,15 +101,22 @@ public class BankRecordView {
 		
 		boolean flag = false;
 		
-		System.out.print("비밀번호 입력 : ");
-		String password = br.readLine();
+		String password = "";
 		
 		while(!flag) {
+			
+			System.out.print("비밀번호 입력 : ");
+			password = br.readLine();
 			
 			System.out.print("비밀번호 확인 : ");
 			String password2 = br.readLine();
 			
 			flag = service.checkPassword(password, password2);
+			
+			if(!flag) {
+				System.out.println("입력하신 비밀번호가 일치하지 않습니다.");
+			}
+			
 		}
 		
 		System.out.print("신규 계좌 개설시 입금할 금액 >> ");
@@ -231,12 +237,140 @@ public class BankRecordView {
 		}
 	}
 	
-	public void updatePassword() {
+	public void updatePassword() throws Exception {
 		System.out.println("\n========== [계좌 비밀번호 수정] ==========\n");
 		
-		System.out.println("비밀번호를 수정할 계좌 번호 입력 : ");
+		System.out.print("비밀번호를 수정할 계좌 번호 입력 : ");
+		String accountNum = br.readLine();
 		
+		boolean check = service.checkAccount(accountNum);
 		
+		if(check) {
+			System.out.print("계좌 비밀 번호 입력 : ");
+			String password = br.readLine();
+			
+			boolean passCheck = service.rightPassword(accountNum,password);
+			
+			String updatepw = "";
+			
+			if(passCheck) {
+				boolean flag = false;
+								
+				while(!flag) {
+					System.out.print("수정할 비밀번호 입력 : ");
+					updatepw = br.readLine();
+					
+					System.out.print("수정할 비밀번호 확인 : ");
+					String updatePw = br.readLine();
+					
+					flag = service.checkPassword(updatepw, updatePw);
+					
+					if(!flag) {
+						System.out.println("비밀번호가 일치하지 않습니다.");
+						System.out.println("수정을 종료하시겠습니까? (Y/N)");
+						String exit = br.readLine();
+						
+						if(br.readLine().toUpperCase().equals("Y")) {
+							System.out.println("@@@ 비밀번호 수정 종료 @@@");
+							return;
+						}
+					}
+				}
+				
+				System.out.print("정말 수정하시겠습니까? (Y/N) : ");
+				String answer = br.readLine();
+				
+				if(answer.toUpperCase().equals("Y")) {
+					String name = service.updatePassword(accountNum, updatepw);
+					System.out.println(name + "님 계좌 비밀번호가 수정되었습니다.");
+				} else {
+					System.out.println("### 비밀번호 수정 종료 ###");
+				}
+			} else {
+				System.out.println("\n계좌 비밀번호 불일치");
+				System.out.println("@@@ 비밀번호 수정 프로그램 종료 @@@");
+			}
+			
+		} else {
+			System.out.println("존재하지 않는 계좌번호입니다.");
+		}
+		
+	}
+	
+	public void deleteAccount() throws Exception {
+		System.out.println("\n============= [계좌 삭제] =============\n");
+		
+		while(true) {
+			
+			System.out.print("삭제할 계좌번호 입력 : ");
+			String accountNum = br.readLine();
+		
+			boolean check = service.checkAccount(accountNum);
+			
+			if(check) {
+				
+				System.out.print("비밀번호 입력 : ");
+				String password = br.readLine();
+				
+				boolean passCheck = service.rightPassword(accountNum,password);
+				
+				String password2 = "";
+				
+				if(passCheck) {	
+					
+					System.out.print("비밀번호 확인 : ");
+					password2 = br.readLine();
+					
+					boolean flag = service.checkPassword(password, password2);
+					
+					if(flag) {
+						
+						System.out.print("정말 삭제하시겠습니까? (Y/N) : ");
+						String answer = br.readLine();
+						
+						if(answer.toUpperCase().equals("Y")) {
+							String name = service.deleteAccount(accountNum);
+							System.out.println( name + "님 계좌가 정삭적으로 삭제되었습니다.");
+							return;
+						} else {
+							System.out.println("계좌 삭제가 취소되었습니다.");
+							System.out.println("@@@ 계좌 삭제 프로그램 종료 @@@");
+							return;
+						}
+						
+					} else {
+						
+						System.out.println("비밀번호가 일치하지 않습니다.");
+						System.out.print("계좌 삭제 프로그램을 종료하시겠습니까? (Y/N) : ");
+						String exit = br.readLine();
+						
+						if(exit.toUpperCase().equals("Y")) {
+							System.out.println("@@@ 계좌 삭제 프로그램 종료 @@@");
+							return;
+						}
+					}
+					
+				} else {
+					
+					System.out.println("##### 계좌 비밀번호 불일치 #####");
+					
+					System.out.print("삭제를 계속 진행하시겠습니까? (Y/N) : ");
+					String deleteRun = br.readLine();
+					
+					if(deleteRun.toUpperCase().equals("N")) {
+						System.out.println("@@@ 계좌 삭제 프로그램 종료 @@@");
+						return;
+					}
+					
+				}
+				
+			} else {
+				System.out.println("존재하지 않는 계좌번호입니다.");
+				System.out.println("프로그램 종료");
+				return;
+			}
+				
+		}
 	}
 	
 }

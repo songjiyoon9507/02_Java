@@ -19,4 +19,8 @@ public interface BankRecordDAO {
 
 	int withdraw(String accountNum, long balance) throws Exception;
 
+	String updatePassword(String accountNum, String updatepw) throws Exception;
+
+	String deleteAccount(String accountNum) throws Exception;
+
 }

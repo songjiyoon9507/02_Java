@@ -123,4 +123,40 @@ public class BankRecordDAOImpl implements BankRecordDAO {
 		
 	}
 
+	@Override
+	public String updatePassword(String accountNum, String updatepw) throws Exception {
+		
+		String name = "";
+		
+		for(BankRecord list : accountList) {
+			if(list.getAccountNum().equals(accountNum)) {
+				name = list.getName();
+				list.setPassword(updatepw);
+				saveFile();
+				break;
+			}
+		}
+		
+		return name;
+	}
+
+	@Override
+	public String deleteAccount(String accountNum) throws Exception {
+
+		String name = "";
+		int index = 0;
+		
+		for(int i = 0 ; i < accountList.size() ; i++) {
+			if(accountList.get(i).getAccountNum().equals(accountNum)) {
+				index = i;
+				name = accountList.get(index).getName();
+				accountList.remove(index);
+				saveFile();
+				break;
+			}
+		}
+		
+		return name;
+	}
+
 }
