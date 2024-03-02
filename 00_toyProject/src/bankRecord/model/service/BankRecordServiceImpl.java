@@ -36,6 +36,8 @@ public class BankRecordServiceImpl implements BankRecordService {
 		return account;
 	}
 	
+	
+	
 	@Override
 	public boolean checkPassword(String password, String password2) {
 		if(password.equals(password2)) return true;
@@ -43,6 +45,22 @@ public class BankRecordServiceImpl implements BankRecordService {
 			System.out.println("입력하신 비밀번호와 일치하지 않습니다. 비밀번호를 다시 입력해주세요.");
 			return false;
 		}
+	}
+	
+	public boolean rightPassword(String accountNum, String password) {
+		int index = -1;
+		
+		for(int i = 0 ; i < dao.FullView().size() ; i++) {
+			if(dao.FullView().get(i).getAccountNum().equals(accountNum)) {
+				index = i;
+				break;
+			}
+		}
+		
+		if(dao.FullView().get(index).getPassword().equals(password)) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -58,9 +76,10 @@ public class BankRecordServiceImpl implements BankRecordService {
 		boolean flag = false;
 		
 		for(BankRecord list : dao.FullView()) {
-			list.getAccountNum().equals(accountNum);
-			flag = true;
-			break;
+			if(list.getAccountNum().equals(accountNum)) {
+				flag = true;
+				break;			
+			}
 		}
 		
 		return flag;
@@ -84,6 +103,46 @@ public class BankRecordServiceImpl implements BankRecordService {
 		// index 존재하면 계좌번호, 성함, 잔액 반환
 		return dao.deposit(index,balance);
 		
+	}
+
+	@Override
+	public String withdraw(String accountNum, long balance) throws Exception {
+		int index = dao.withdraw(accountNum, balance);
+		
+		String name = "";
+		long money = 0;
+		
+		for(BankRecord list : dao.FullView()) {
+			if(list.getAccountNum().equals(accountNum)) {
+				name = list.getName();
+				money = list.getBalance();
+				break;			
+			}
+		}
+		
+		if (index == -1) {
+			return "### "+ name + "님 계좌에 잔액이 부족합니다. ###\n남은 잔액 : " + money + "원";
+		} else {
+			return "출금이 완료되었습니다.\n" + name + "님 계좌 출금 후 잔액 : " + money + "원"; 
+		}
+
+		
+	}
+
+	@Override
+	public String searchBalance(String accountNum) {
+		String name = "";
+		long money = 0;
+		
+		for(BankRecord list : dao.FullView()) {
+			if(list.getAccountNum().equals(accountNum)) {
+				name = list.getName();
+				money = list.getBalance();
+				break;			
+			}
+		}
+		
+		return "[ " + name + " ] 님의 계좌번호 : " + accountNum + "\n통장 잔고는 " + money + "원 입니다.";
 	}
 	
 	

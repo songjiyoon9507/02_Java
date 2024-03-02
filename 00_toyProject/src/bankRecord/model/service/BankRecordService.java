@@ -16,4 +16,10 @@ public interface BankRecordService {
 	public boolean checkAccount(String accountNum);
 
 	public String deposit(String accountNum, long balance) throws Exception;
+
+	public boolean rightPassword(String accountNum, String password);
+
+	public String withdraw(String accountNum, long balance) throws Exception;
+
+	public String searchBalance(String accountNum);
 }

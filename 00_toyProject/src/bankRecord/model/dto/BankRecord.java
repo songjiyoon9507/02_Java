@@ -59,7 +59,9 @@ public class BankRecord implements Serializable {
 
 	@Override
 	public String toString() {
-		return "[계좌번호] : " + accountNum + " / [성함] : " + name + " / [잔액] : " + balance + "원";
+		return "[계좌번호] : " + accountNum + " / [성함] : " + name 
+				+ " / [잔액] : " + balance + "원"
+				+ " / [계좌 비밀번호] : " + password;
 	}
 	
 }

@@ -17,4 +17,6 @@ public interface BankRecordDAO {
 
 	String deposit(int index, long balance) throws Exception;
 
+	int withdraw(String accountNum, long balance) throws Exception;
+
 }

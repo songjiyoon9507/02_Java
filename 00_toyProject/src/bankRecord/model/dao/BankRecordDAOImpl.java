@@ -97,4 +97,30 @@ public class BankRecordDAOImpl implements BankRecordDAO {
 		}
 	}
 
+	/**
+	 * 잔액 부족이면 -1
+	 * 아니면 balance 출금하고 saveFile return index number
+	 */
+	@Override
+	public int withdraw(String accountNum, long balance) throws Exception {
+		int index = -1;
+		
+		for(int i = 0 ; i < accountList.size() ; i++) {
+			if(accountList.get(i).getAccountNum().equals(accountNum)) {
+				index = i;
+			}
+		}
+		
+		if(accountList.get(index).getBalance() >= balance) {
+			long money = accountList.get(index).getBalance();
+			accountList.get(index).setBalance(money - balance);
+			saveFile();
+			return index;	
+		} else {
+			index = -1;
+			return index;
+		}
+		
+	}
+
 }
