@@ -84,7 +84,7 @@ public class ByteService {
 			
 			long startTime = System.nanoTime();
 			
-			// 출력 방법 2 : String 을 byte[] 변환 후 출력
+			// 출력 방법 2 : String 을 byte[] 변환 후 출력 [ㄱ, ㅏ, ㄴ, ㅏ] 이런식으로 변환 후
 			fos.write(content.getBytes());
 			
 			long endTime = System.nanoTime();

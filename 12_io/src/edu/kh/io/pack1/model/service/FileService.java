@@ -119,7 +119,6 @@ public class FileService {
 				
 			}
 			
-			
 		} catch (IOException e) {
 			e.printStackTrace(); // 예외 정보 + 예외가 발생한 위치까지의 메서드 추적
 		}
@@ -179,7 +178,7 @@ public class FileService {
 //			2024-02-22 오후 12:14
 			
 			// 파일 유형 (파일이냐 폴더냐)
-			String type= null;
+			String type = null;
 			if(f.isFile()) type = "파일";
 			else		   type = "폴더"; // isDirectory
 			
