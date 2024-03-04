@@ -397,8 +397,8 @@ public class ByteService {
 			String copy = sb.toString(); // 복사할 파일의 경로
 			
 			// 출력용 스트림 생성
-			fos = new FileOutputStream(copy);
-			bos = new BufferedOutputStream(fos);
+			fos = new FileOutputStream(copy); // 파일 경로 전달
+			bos = new BufferedOutputStream(fos); // 보조 스트림에는 스트림 전달
 			
 			// 읽어왔던 내용 bytes를 bos를 이용해서 출력
 			bos.write(bytes);
@@ -420,7 +420,5 @@ public class ByteService {
 		}
 		
 	}
-	
-	
-	
+
 }
