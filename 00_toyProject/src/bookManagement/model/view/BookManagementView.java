@@ -37,6 +37,7 @@ public class BookManagementView {
 				switch(input) {
 				
 				case 1 : bookListFullView(); break;
+				case 2 : addBookList(); break;
 				
 				case 0 : System.out.println("@@@@@ 프로그램 종료 @@@@@"); break;
 				default : System.out.println("### 메뉴에 작성된 번호만 입력해주세요. ###");
@@ -69,5 +70,11 @@ public class BookManagementView {
 		for (Book list : service.bookListFullView()) {
 			System.out.println(list);
 		}
+	}
+	
+	public void addBookList() {
+		System.out.println("\n========== [ 신규 도서 등록 ] ==========\n");
+		
+		System.out.println("도서 번호 : ");
 	}
 }
