@@ -54,6 +54,7 @@ public class BookManagementView {
 		System.out.println("\n========== [ 도서 관리 프로그램 ] ==========\n");
 		
 		System.out.println("1. 도서 목록 전체 조회");
+		System.out.println("2. 도서 등록하기");
 		
 		System.out.println("0. 프로그램 종료");
 		
