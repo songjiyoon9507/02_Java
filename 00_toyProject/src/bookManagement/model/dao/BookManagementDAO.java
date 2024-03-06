@@ -12,4 +12,6 @@ public interface BookManagementDAO {
 	void saveFile() throws Exception;
 	
 	List<Book> bookListFullView();
+
+	boolean addBookList(String title, String author, int price, String publisher, String category) throws Exception;
 }

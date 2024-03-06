@@ -87,4 +87,12 @@ public class BookManagementDAOImpl implements BookManagementDAO {
 	public List<Book> bookListFullView() {
 		return bookList;
 	}
+
+	@Override
+	public boolean addBookList(String title, String author, int price, String publisher, String category) throws Exception {
+		// index + 1 도서 번호 등록
+		boolean temp = bookList.add(new Book(bookList.size()+1, title, author, price, publisher, category));
+		saveFile();
+		return temp;
+	}
 }

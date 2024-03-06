@@ -36,7 +36,7 @@ public class BookManagementView {
 				
 				switch(input) {
 				
-				case 1 : bookListFullView(); break;
+				case 1 : searchBookList(); break;
 				case 2 : addBookList(); break;
 				
 				case 0 : System.out.println("@@@@@ 프로그램 종료 @@@@@"); break;
@@ -54,9 +54,9 @@ public class BookManagementView {
 	public int selectMenu() throws Exception {
 		System.out.println("\n========== [ 도서 관리 프로그램 ] ==========\n");
 		
-		System.out.println("1. 도서 목록 전체 조회");
-		System.out.println("2. 도서 등록하기");
-		
+		System.out.println("1. 도서 목록 조회");
+		System.out.println("2. 도서 등록");
+		System.out.println("3. 도서 검색");
 		System.out.println("0. 프로그램 종료");
 		
 		System.out.print("메뉴 선택 >> ");
@@ -64,17 +64,75 @@ public class BookManagementView {
 		return input;
 	}
 	
-	public void bookListFullView() {
-		System.out.println("\n========== [ 도서 정보 전체 조회 ] ==========\n");
+	public void searchBookList() throws Exception {
+		System.out.println("\n========== [ 도서 정보 조회 ] ==========\n");
+		
+		int menuNum = 0;
+		
+		do {
+			
+			System.out.println("1. 도서 목록 전체 조회");
+			System.out.println("2. 제목으로 검색하기");
+			System.out.println("3. 장르별로 검색하기");
+			System.out.println("4. 낮은 가격 순으로 정리하기");
+			System.out.println("5. 높은 가격 순으로 정리하기");
+			
+			System.out.print("메뉴 선택 >> ");
+			menuNum = Integer.parseInt(br.readLine());
+		} while(menuNum != 0);
 		
 		for (Book list : service.bookListFullView()) {
 			System.out.println(list);
 		}
 	}
 	
-	public void addBookList() {
+	public void addBookList() throws Exception {
 		System.out.println("\n========== [ 신규 도서 등록 ] ==========\n");
 		
-		System.out.println("도서 번호 : ");
+		while (true) {
+			
+			System.out.print("제목 : ");
+			String title = br.readLine();
+			
+			System.out.print("저자 : ");
+			String author = br.readLine();
+			
+			System.out.print("가격 : ");
+			int price = Integer.parseInt(br.readLine());
+			
+			System.out.print("출판사 : ");
+			String publisher = br.readLine();
+			
+			System.out.print("장르 : ");
+			String category = br.readLine();
+			
+//			System.out.print("등록을 종료하려면 'exit' 입력해주세요.");
+//			String exit = br.readLine();
+//			
+//			if(exit.equals("exit")) {
+//				System.out.println("###### 도서 등록 종료 ######");
+//				return;
+//			} else {
+				
+			boolean temp = service.addBookList(title, author, price, publisher, category);
+				
+			if (temp) {
+				System.out.println("[ 신규 도서 등록 완료 ]");
+			} else {
+				System.out.println("[ 신규 도서 등록 실패 ]");
+			}
+				
+//			}
+			
+			System.out.println("등록을 종료하려면 'exit' 입력해주세요.");
+			System.out.println("등록을 계속하시려면 아무 키나 눌러주세요.");
+			String exit = br.readLine();
+			
+			if(exit.equals("exit")) {
+				System.out.println("##### 도서 등록 종료 #####");
+				return;
+			}
+		}
+		
 	}
 }

@@ -19,6 +19,15 @@ public class BookManagementServiceImpl implements BookManagementService {
 	public List<Book> bookListFullView() {
 		return dao.bookListFullView();
 	}
+
+	/**
+	 * 추가 되면 true 추가 안 되면 false 반환
+	 */
+	@Override
+	public boolean addBookList(String title, String author, int price, String publisher, String category) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.addBookList(title, author, price, publisher, category);
+	}
 	
 	
 }
