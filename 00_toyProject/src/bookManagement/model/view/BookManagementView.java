@@ -64,26 +64,60 @@ public class BookManagementView {
 		return input;
 	}
 	
-	public void searchBookList() throws Exception {
-		System.out.println("\n========== [ 도서 정보 조회 ] ==========\n");
+	public void searchBookList() {
 		
 		int menuNum = 0;
 		
 		do {
 			
-			System.out.println("1. 도서 목록 전체 조회");
-			System.out.println("2. 제목으로 검색하기");
-			System.out.println("3. 장르별로 검색하기");
-			System.out.println("4. 낮은 가격 순으로 정리하기");
-			System.out.println("5. 높은 가격 순으로 정리하기");
+			try {
+				
+				menuNum = selectSearchList();
+				
+				switch(menuNum) {
+				case 1 : bookListFullView(); break;
+				
+				case 0 : System.out.println("도서 정보 조회 종료"); break;
+				}
+				
+				
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 			
-			System.out.print("메뉴 선택 >> ");
-			menuNum = Integer.parseInt(br.readLine());
 		} while(menuNum != 0);
+	}
+	
+	public int selectSearchList() throws Exception {
+		System.out.println("\n========== [ 도서 정보 조회 ] ==========\n");
+			
+		System.out.println("1. 도서 목록 전체 조회");
+		System.out.println("2. 제목으로 검색하기");
+		System.out.println("3. 장르별로 검색하기");
+		System.out.println("4. 낮은 가격 순으로 정리하기");
+		System.out.println("5. 높은 가격 순으로 정리하기");
+		System.out.println("0. 메인 메뉴로 돌아가기");
 		
+		System.out.print("메뉴 선택 >> ");
+		int menuNum = Integer.parseInt(br.readLine());
+
+		return menuNum;
+		
+	}
+	
+	public void bookListFullView() {
+		System.out.println();
 		for (Book list : service.bookListFullView()) {
 			System.out.println(list);
 		}
+	}
+	
+	/**
+	 * 제목으로 검색하기
+	 */
+	public void searchTitle() {
+		
 	}
 	
 	public void addBookList() throws Exception {
