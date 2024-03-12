@@ -311,38 +311,65 @@ public class BookManagementView {
 	/**
 	 * 도서 수정
 	 */
-	public void updateBook() throws Exception {
+	public int updateBookMenu() throws Exception {
 		System.out.println("\n========== [ 도서 목록 내용 수정 ] ==========\n");
-		
-		while(true) {
+
+		System.out.println("수정할 도서의 도서 번호 입력 : ");
+		int bookNum = Integer.parseInt(br.readLine());
 			
-			System.out.println("수정할 도서의 도서 번호 입력 : ");
-			int bookNum = Integer.parseInt(br.readLine());
+		// indexMatch 메서드에서 도서번호 존재하면 true 존재하지 않으면 false 반환
+		int index = service.indexMatch(bookNum);
 			
-			// indexMatch 메서드에서 도서번호 존재하면 true 존재하지 않으면 false 반환
-			int index = service.indexMatch(bookNum);
+		int menuNum = 0;
 			
-			int menuNum = 0;
-			
-			if(index == -1) { // 매치하는 번호가 없을 때
-				System.out.println("일치하는 도서 번호가 없습니다.");
-				System.out.println("### 수정 종료 ###");
-				break;
-			} else {
+		if(index == -1) { // 매치하는 번호가 없을 때
+			System.out.println("일치하는 도서 번호가 없습니다.");
+			return 0;
+		} else {
 				
-				System.out.println("수정하실 메뉴를 선택해주세요.");
+			System.out.println("수정하실 메뉴를 선택해주세요.");
 				
-				System.out.println("1. 제목 수정");
-				System.out.println("2. 저자 수정");
-				System.out.println("3. 가격 수정");
-				System.out.println("4. 출판사 수정");
-				System.out.println("5. 장르 수정");
+			System.out.println("1. 제목 수정");
+			System.out.println("2. 저자 수정");
+			System.out.println("3. 가격 수정");
+			System.out.println("4. 출판사 수정");
+			System.out.println("5. 장르 수정");
 				
-				System.out.print("메뉴 선택 >> ");
-				menuNum = Integer.parseInt(br.readLine());
-				
-			}
+			System.out.print("메뉴 선택 >> ");
+			menuNum = Integer.parseInt(br.readLine());
 		}
 		
+		return menuNum;
+	}
+	
+	public void updateBook() {
+		
+		int menuNum = 0;
+		
+		do {
+			
+			try {
+				
+				menuNum = updateBookMenu();
+				
+				switch(menuNum) {
+				case 1 : updateTitle(); break;
+//				case 2 : updateAuthor(); break;
+//				case 3 : updatePrice(); break;
+//				case 4 : updatePublisher(); break;
+//				case 5 : updateCategory(); break;
+				case 0 : System.out.println("### 도서 목록 수정 종료 ###"); break;
+				default : System.out.println("### 메뉴에 작성된 번호만 입력해주세요. ###");
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		} while(menuNum != 0);
+	}
+	
+	public void updateTitle() {
+
 	}
 }
