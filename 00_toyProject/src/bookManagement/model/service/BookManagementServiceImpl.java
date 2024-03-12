@@ -28,6 +28,34 @@ public class BookManagementServiceImpl implements BookManagementService {
 		// TODO Auto-generated method stub
 		return dao.addBookList(title, author, price, publisher, category);
 	}
+
+	@Override
+	public List<Book> sortByLowPrice() {
+		return dao.sortByLowPrice();
+	}
+
+	@Override
+	public List<Book> sortByHighPrice() {
+		return dao.sortbyHighPrice();
+	}
+
+	@Override
+	public List<Book> sortByTitle() {
+		return dao.sortByTitle();
+	}
+
+	@Override
+	public List<Book> sortByCategory() {
+		return dao.sortByCategory();
+	}
+
+	/**
+	 * 도서 번호 존재하면 true 반환, 존재하지 않으면 false 반환
+	 */
+	@Override
+	public int indexMatch(int bookNum) {
+		return dao.indexMatch(bookNum);
+	}
 	
 	
 }

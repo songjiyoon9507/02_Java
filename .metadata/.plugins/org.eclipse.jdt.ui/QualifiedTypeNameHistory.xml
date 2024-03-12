@@ -7,7 +7,6 @@
     <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="com.hw4_1.model.dto.Toy"/>
     <fullyQualifiedTypeName name="com.hw4_1.model.service.ToyFactory"/>
-    <fullyQualifiedTypeName name="java.util.Comparator"/>
     <fullyQualifiedTypeName name="java.util.Map.Entry"/>
     <fullyQualifiedTypeName name="edu.kh.io.pack1.model.service.FileService"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
@@ -39,7 +38,6 @@
     <fullyQualifiedTypeName name="edu.kh.thread.test.ThreadWithRunnable"/>
     <fullyQualifiedTypeName name="edu.kh.lambda.test.Calculator"/>
     <fullyQualifiedTypeName name="edu.kh.lambda.test.LambdaTest"/>
-    <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="bankRecord.model.dto.BankRecord"/>
     <fullyQualifiedTypeName name="java.io.File"/>
@@ -58,6 +56,8 @@
     <fullyQualifiedTypeName name="java.io.BufferedReader"/>
     <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 </qualifiedTypeNameHistroy>

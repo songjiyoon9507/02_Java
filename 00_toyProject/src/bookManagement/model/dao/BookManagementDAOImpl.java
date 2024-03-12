@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import bookManagement.model.dto.Book;
@@ -83,16 +85,93 @@ public class BookManagementDAOImpl implements BookManagementDAO {
 		}
 	}
 
+	/**
+	 * 정렬 메소드 만들면서 도서 전체 목록 조회 순서도 바뀌어서 정렬됨
+	 * 도서번호 순으로 정렬하여 출력하게 만든 메서드
+	 */
 	@Override
 	public List<Book> bookListFullView() {
+		Comparator<Book> index = Comparator.comparing(Book::getBookNum);
+		
+		Collections.sort(bookList, index);
+		
 		return bookList;
 	}
 
+	/**
+	 * 도서 번호 순 정렬
+	 */
 	@Override
 	public boolean addBookList(String title, String author, int price, String publisher, String category) throws Exception {
 		// index + 1 도서 번호 등록
 		boolean temp = bookList.add(new Book(bookList.size()+1, title, author, price, publisher, category));
 		saveFile();
 		return temp;
+	}
+
+	/**
+	 * 낮은 가격 순 정렬
+	 */
+	@Override
+	public List<Book> sortByLowPrice() {
+		Comparator<Book> priceComparator = Comparator.comparing(Book::getPrice);
+		
+		Collections.sort(bookList, priceComparator);
+		
+		return bookList;
+	}
+
+	/**
+	 * 높은 가격 순 정렬
+	 */
+	@Override
+	public List<Book> sortbyHighPrice() {
+		Comparator<Book> priceComparator = Comparator.comparing(Book::getPrice).reversed();
+		
+		Collections.sort(bookList, priceComparator);
+		
+		return bookList;
+	}
+
+	/**
+	 * 제목순 정렬
+	 */
+	@Override
+	public List<Book> sortByTitle() {
+		Comparator<Book> sort = Comparator.comparing(Book::getTitle);
+		
+		Collections.sort(bookList, sort);
+		
+		return bookList;
+	}
+
+	/**
+	 * 카테고리별 정렬
+	 */
+	@Override
+	public List<Book> sortByCategory() {
+		Comparator<Book> sort = Comparator.comparing(Book::getCategory);
+
+		Collections.sort(bookList, sort);
+		
+		return bookList;
+	}
+
+	/**
+	 * index 와 도서 번호 일치하는 게 있으면 true 반환 없으면 false 반환
+	 */
+	@Override
+	public int indexMatch(int bookNum) {
+		
+		int index = -1;
+		
+		for(int i = 0 ; i < bookList.size() ; i ++) {
+			if(bookList.get(i).getBookNum() == bookNum) {
+				index = i;
+				break;
+			}
+		}
+		
+		return index;
 	}
 }
