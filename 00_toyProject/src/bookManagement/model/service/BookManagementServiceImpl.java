@@ -56,6 +56,31 @@ public class BookManagementServiceImpl implements BookManagementService {
 	public int indexMatch(int bookNum) {
 		return dao.indexMatch(bookNum);
 	}
+
+	@Override
+	public boolean updateTitle(int index, String title) throws Exception {
+		return dao.updateTitle(index,title);
+	}
+
+	@Override
+	public boolean updateAuthor(int index, String author) throws Exception {
+		return dao.updateAuthor(index, author);
+	}
+
+	@Override
+	public boolean updatePrice(int index, int price) throws Exception {
+		return dao.updatePrice(index, price);
+	}
+
+	@Override
+	public boolean updatePublisher(int index, String publisher) throws Exception {
+		return dao.updatePublisher(index, publisher);
+	}
+
+	@Override
+	public boolean updateCategory(int index, String category) throws Exception {
+		return dao.updateCategory(index, category);
+	}
 	
 	
 }

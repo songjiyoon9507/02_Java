@@ -24,4 +24,14 @@ public interface BookManagementDAO {
 	List<Book> sortByCategory();
 
 	int indexMatch(int bookNum);
+
+	boolean updateTitle(int index, String title) throws Exception;
+
+	boolean updateAuthor(int index, String author) throws Exception;
+
+	boolean updatePrice(int index, int price) throws Exception;
+
+	boolean updatePublisher(int index, String publisher) throws Exception;
+
+	boolean updateCategory(int index, String category) throws Exception;
 }

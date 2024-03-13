@@ -174,4 +174,69 @@ public class BookManagementDAOImpl implements BookManagementDAO {
 		
 		return index;
 	}
+
+	@Override
+	public boolean updateTitle(int index, String title) throws Exception {
+		bookList.get(index).setTitle(title);
+		
+		saveFile();
+		
+		if(bookList.get(index).getTitle().equals(title)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean updateAuthor(int index, String author) throws Exception {
+		bookList.get(index).setAuthor(author);
+		
+		saveFile();
+		
+		if(bookList.get(index).getAuthor().equals(author)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean updatePrice(int index, int price) throws Exception {
+		bookList.get(index).setPrice(price);
+		
+		saveFile();
+		
+		if(bookList.get(index).getPrice() == price) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean updatePublisher(int index, String publisher) throws Exception {
+		bookList.get(index).setPublisher(publisher);
+		
+		saveFile();
+		
+		if(bookList.get(index).getPublisher().equals(publisher)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean updateCategory(int index, String category) throws Exception {
+		bookList.get(index).setCategory(category);
+		
+		saveFile();
+		
+		if(bookList.get(index).getCategory().equals(category)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

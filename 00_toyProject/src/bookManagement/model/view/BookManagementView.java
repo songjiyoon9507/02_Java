@@ -39,7 +39,7 @@ public class BookManagementView {
 				case 1 : veiwBookList(); break;
 				case 2 : addBookList(); break;
 				case 3 : searchBookList(); break;
-				case 4 : updateBook(); break;
+				case 4 : updateBookMenu(); break;
 				
 				case 0 : System.out.println("@@@@@ 프로그램 종료 @@@@@"); break;
 				default : System.out.println("### 메뉴에 작성된 번호만 입력해주세요. ###");
@@ -311,38 +311,41 @@ public class BookManagementView {
 	/**
 	 * 도서 수정
 	 */
-	public int updateBookMenu() throws Exception {
+	public void updateBookMenu() throws Exception {
 		System.out.println("\n========== [ 도서 목록 내용 수정 ] ==========\n");
 
-		System.out.println("수정할 도서의 도서 번호 입력 : ");
+		System.out.print("수정할 도서의 도서 번호 입력 : ");
 		int bookNum = Integer.parseInt(br.readLine());
 			
 		// indexMatch 메서드에서 도서번호 존재하면 true 존재하지 않으면 false 반환
 		int index = service.indexMatch(bookNum);
 			
-		int menuNum = 0;
-			
 		if(index == -1) { // 매치하는 번호가 없을 때
 			System.out.println("일치하는 도서 번호가 없습니다.");
-			return 0;
-		} else {
-				
-			System.out.println("수정하실 메뉴를 선택해주세요.");
-				
-			System.out.println("1. 제목 수정");
-			System.out.println("2. 저자 수정");
-			System.out.println("3. 가격 수정");
-			System.out.println("4. 출판사 수정");
-			System.out.println("5. 장르 수정");
-				
-			System.out.print("메뉴 선택 >> ");
-			menuNum = Integer.parseInt(br.readLine());
+		} else { // 매칭되는 번호가 있을 때 index
+			updateBook(index);
 		}
 		
-		return menuNum;
 	}
 	
-	public void updateBook() {
+	public int updateView() throws Exception {
+		
+		System.out.println("\n===== [ 수정할 메뉴 선택 ] =====\n");
+		
+		System.out.println("1. 제목 수정");
+		System.out.println("2. 저자 수정");
+		System.out.println("3. 가격 수정");
+		System.out.println("4. 출판사 수정");
+		System.out.println("5. 장르 수정");
+		System.out.println("0. 수정 종료");
+		System.out.print("\n메뉴 선택 >> ");
+		int menuNum = Integer.parseInt(br.readLine());
+		
+		return menuNum;
+		
+	}
+	
+	public void updateBook(int index) {
 		
 		int menuNum = 0;
 		
@@ -350,14 +353,14 @@ public class BookManagementView {
 			
 			try {
 				
-				menuNum = updateBookMenu();
+				menuNum = updateView();
 				
 				switch(menuNum) {
-				case 1 : updateTitle(); break;
-//				case 2 : updateAuthor(); break;
-//				case 3 : updatePrice(); break;
-//				case 4 : updatePublisher(); break;
-//				case 5 : updateCategory(); break;
+				case 1 : updateTitle(index); break;
+				case 2 : updateAuthor(index); break;
+				case 3 : updatePrice(index); break;
+				case 4 : updatePublisher(index); break;
+				case 5 : updateCategory(index); break;
 				case 0 : System.out.println("### 도서 목록 수정 종료 ###"); break;
 				default : System.out.println("### 메뉴에 작성된 번호만 입력해주세요. ###");
 				}
@@ -367,9 +370,81 @@ public class BookManagementView {
 			}
 			
 		} while(menuNum != 0);
+		
 	}
 	
-	public void updateTitle() {
-
+	public void updateTitle(int index) throws Exception {
+		
+		System.out.print("수정할 제목 입력 : ");
+		String title = br.readLine();
+		
+		boolean update = service.updateTitle(index, title);
+		
+		if(update) {
+			System.out.println("\n@@@@@ 제목 수정 완료 @@@@@");
+		} else {
+			System.out.println("\n##### 제목 수정 실패 #####");
+		}
+		
+	}
+	
+	public void updateAuthor(int index) throws Exception {
+		
+		System.out.print("수정할 저자 입력 : ");
+		String author = br.readLine();
+		
+		boolean update = service.updateAuthor(index, author);
+		
+		if(update) {
+			System.out.println("\n@@@@@ 저자 수정 완료 @@@@@");
+		} else {
+			System.out.println("\n##### 저자 수정 실패 #####");
+		}
+		
+	}
+	
+	public void updatePrice(int index) throws Exception {
+		
+		System.out.print("수정할 가격 입력 : ");
+		int price = Integer.parseInt(br.readLine());
+		
+		boolean update = service.updatePrice(index, price);
+		
+		if(update) {
+			System.out.println("\n@@@@@ 가격 수정 완료 @@@@@");
+		} else {
+			System.out.println("\n##### 가격 수정 실패 #####");
+		}
+		
+	}
+	
+	public void updatePublisher(int index) throws Exception {
+		
+		System.out.print("수정할 출판사 입력 : ");
+		String publisher = br.readLine();
+		
+		boolean update = service.updatePublisher(index, publisher);
+		
+		if(update) {
+			System.out.println("\n@@@@@ 출판사 수정 완료 @@@@@");
+		} else {
+			System.out.println("\n##### 출판사 수정 실패 #####");
+		}
+		
+	}
+	
+	public void updateCategory(int index) throws Exception {
+		
+		System.out.print("수정할 장르 입력 : ");
+		String category = br.readLine();
+		
+		boolean update = service.updateCategory(index, category);
+		
+		if(update) {
+			System.out.println("\n@@@@@ 장르 수정 완료 @@@@@");
+		} else {
+			System.out.println("\n##### 장르 수정 실패 #####");
+		}
+		
 	}
 }
