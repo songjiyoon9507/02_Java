@@ -208,6 +208,10 @@ public class JavaAPIService {
 		// 기존 temp2 해시코드와 다르다 --> 다른 객체
 	}
 	
+	// 문자열 변경이 자주 일어나는 경우
+	// String (불변성)
+	// StringBuilder / StringBuffer (가변성) - 할당된 공간이 변함
+	
 	/**
 	 * StringBuilder / StringBuffer 클래스
 	 * - String 의 불변성 문제를 해결한 클래스
@@ -218,6 +222,23 @@ public class JavaAPIService {
 	 *   -> 마음대로 문자열 수정, 삭제 가능
 	 *   -> 수정, 삭제를 해도 추가적인 객체 생성이 없어 효율 좋음
 	 *   
+	 *   그냥 String 의 경우
+	 *   String str = "hello"; hello 공간 만듦
+	 *   str += "world"; helloworld 공간 또 만듦
+	 *   하면 새객체 만듦
+	 *   str -= "world";
+	 *   하면 hello 만 들어가는 공간 또 만듦 (기존 hello 쓰는 게 아님)
+	 *   
+	 *   StringBuilder / StringBuffer 는
+	 *   같은 객체를 계속 보고있음 객체 공간이 계속 변함 (가변성)
+	 *   
+	 *   *** 동기와 비동기 ***
+	 *   동기 : 먼저 들어온 일 끝내고 다음 거 시작함 -> 동기화
+	 *          일하는 애들을 순서대로 일할 수 있도록 줄 세워놓은 것
+	 *   
+	 *   비동기 : 여러 개 동시에 일함 일하는 중간에 시작
+	 *            줄 세워놓지 않고 공동으로 작업
+	 *   
 	 * - StringBuilder : Thread Safe 미제공 (비동기)
 	 * : 속도면에서는 StringBuffer 보다 성능 좋음
 	 *   -> 멀티쓰레드 환경에서는 StringBuilder 사용 시
@@ -227,7 +248,7 @@ public class JavaAPIService {
 	 * - StringBuffer  : Thread Safe 제공 (동기)
 	 * : 속도면에서는 StringBuilder 보다 성능 떨어짐
 	 *   -> 멀티쓰레드 환경에서 안전하게 동작할 수 있음
-	 *   -> 멀티쓰레드 환경에서 유리  
+	 *   -> 멀티쓰레드 환경에서 유리
 	 */
 	public void method6() {
 		
