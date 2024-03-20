@@ -239,4 +239,19 @@ public class BookManagementDAOImpl implements BookManagementDAO {
 			return false;
 		}
 	}
+
+	@Override
+	public Book deleteBook(int bookNum) throws Exception {
+		Book book = null;
+		
+		for(int i = 0 ; i < bookList.size() ; i++) {
+			if(bookList.get(i).getBookNum() == bookNum) {
+				book = bookList.remove(i);
+				saveFile();
+				break;
+			}
+		}
+		
+		return book;
+	}
 }

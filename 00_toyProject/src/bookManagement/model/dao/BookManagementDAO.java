@@ -34,4 +34,6 @@ public interface BookManagementDAO {
 	boolean updatePublisher(int index, String publisher) throws Exception;
 
 	boolean updateCategory(int index, String category) throws Exception;
+
+	Book deleteBook(int bookNum) throws Exception;
 }

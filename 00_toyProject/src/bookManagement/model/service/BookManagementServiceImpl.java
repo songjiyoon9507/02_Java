@@ -81,6 +81,24 @@ public class BookManagementServiceImpl implements BookManagementService {
 	public boolean updateCategory(int index, String category) throws Exception {
 		return dao.updateCategory(index, category);
 	}
-	
-	
+
+	@Override
+	public boolean checkBookNum(int bookNum) {
+		boolean check = false;
+		
+		for(int i = 0 ; i < bookListFullView().size() ; i++) {
+			if(bookListFullView().get(i).getBookNum() == bookNum) {
+				check = true;
+				break;
+			}
+		}
+		
+		return check;
+	}
+
+	@Override
+	public Book deleteBook(int bookNum) throws Exception {
+		return dao.deleteBook(bookNum);
+	}
+
 }

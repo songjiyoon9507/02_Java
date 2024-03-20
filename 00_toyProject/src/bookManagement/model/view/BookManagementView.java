@@ -40,7 +40,7 @@ public class BookManagementView {
 				case 2 : addBookList(); break;
 				case 3 : searchBookList(); break;
 				case 4 : updateBookMenu(); break;
-				
+				case 5 : deleteBook(); break;
 				case 0 : System.out.println("@@@@@ 프로그램 종료 @@@@@"); break;
 				default : System.out.println("### 메뉴에 작성된 번호만 입력해주세요. ###");
 				}
@@ -60,6 +60,7 @@ public class BookManagementView {
 		System.out.println("2. 도서 등록");
 		System.out.println("3. 도서 검색");
 		System.out.println("4. 도서 수정");
+		System.out.println("5. 도서 삭제");
 		System.out.println("0. 프로그램 종료");
 		
 		System.out.print("메뉴 선택 >> ");
@@ -447,4 +448,32 @@ public class BookManagementView {
 		}
 		
 	}
+	
+	/**
+	 * 도서 삭제
+	 */
+	public void deleteBook() throws Exception {
+		System.out.println("삭제할 도서 번호 입력 : ");
+		int bookNum = Integer.parseInt(br.readLine());
+		
+		boolean check = service.checkBookNum(bookNum);
+		
+		if(!check) {
+			System.out.println("일치하는 도서 번호가 없습니다.");
+		} else {
+			// 삭제 되면 book 객체가 null 이 아님
+			System.out.print("정말 삭제하시겠습니까?(Y/N) : ");
+			char answer = br.readLine().toUpperCase().charAt(0);
+			
+			if(answer == 'N') {
+				System.out.println("\n### 삭제 취소 ###\n");
+			} else if(answer != 'Y') {
+				System.out.println("\n### 잘못 입력하셨습니다. ###\n");
+			} else {
+				Book book = service.deleteBook(bookNum);
+				System.out.printf("\n%s의 도서 정보가 삭제되었습니다.\n", book.getTitle());	
+			}
+		}
+	}
+	
 }

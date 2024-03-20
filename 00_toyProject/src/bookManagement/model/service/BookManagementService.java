@@ -30,4 +30,8 @@ public interface BookManagementService {
 
 	boolean updateCategory(int index, String category) throws Exception;
 
+	Book deleteBook(int bookNum) throws Exception;
+
+	boolean checkBookNum(int bookNum);
+
 }
